@@ -17,9 +17,7 @@ export const Join: React.FC = () => {
 
   const [stream, setStream] = useState<MediaStream | null>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const _audioContextRef = useRef<AudioContext | null>(null);
-  const _analyserRef = useRef<AnalyserNode | null>(null);
-  const [_micVolume, _setMicVolume] = useState(0);
+
   const [mediaError, setMediaError] = useState('');
   const [networkPing, setNetworkPing] = useState<number | null>(null);
 
