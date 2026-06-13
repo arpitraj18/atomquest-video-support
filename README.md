@@ -8,17 +8,25 @@ Built for the **AtomQuest Hackathon 1.0 Grand Finale**. An agent creates a sessi
 
 ## Features
 
-| Category         | Details                                                      |
-|------------------|--------------------------------------------------------------|
-| **Video/Audio**  | 1:1 real-time via server-routed SFU (werift). VP8 + Opus.    |
-| **Signaling**    | Socket.IO for SDP/ICE relay, presence, chat, control events. |
-| **Chat**         | In-call real-time chat with file attachment chips.            |
-| **File Sharing** | Upload images, PDFs, documents. MIME-restricted, size-capped. |
-| **Recording**    | Agent-controlled, server-side WebM recording via werift.     |
-| **Reconnect**    | 20s grace window; seamless re-attach with no renegotiation.  |
-| **Admin**        | Live session dashboard, event log drill-down, force-end.     |
-| **Metrics**      | Prometheus exposition at `/metrics`.                         |
-| **Security**     | JWT dual-secret auth, bcrypt, rate-limiting, MIME allowlist.  |
+### 🌟 Must-Have Core Capabilities (Fully Completed)
+- **Session Management:** Role-based access control. Agents create sessions and generate secure, cryptographically random invite links. Customers join via browser with zero installation. All sessions can be cleanly terminated and are persisted with full history.
+- **Audio & Video Calling:** Real-time 1:1 video and audio routed entirely through our **custom-built SFU server** (Selective Forwarding Unit) using `werift`. No direct peer-to-peer, no third-party APIs (Twilio, Agora, etc.). Fully compliant with hackathon constraints.
+- **In-Call Chat:** Persistent, real-time WebSocket chat integrated directly into the call room. Messages are saved to the database and retrievable after the call.
+- **User Roles & Access:** Strict enforcement using separate JWT signing secrets for Agents vs. Customers. Customers are issued session-scoped tokens and cannot perform agent actions.
+
+### 🚀 Good-to-Have Features (All 5 Implemented)
+- **1. Call Recording:** Agents can start/stop server-side recordings. We use a headless Puppeteer instance to capture the live media layout into a WebM file, available for download post-call.
+- **2. File Sharing in Chat:** Participants can securely upload files (Images, PDFs, Docs) during a call. Files are strictly validated by MIME type, size-capped (10MB), and accessible via the session record.
+- **3. Reconnect Handling:** A robust 20-second grace window. If a connection drops, the server holds their spot. Reconnecting within the window seamlessly restores their session without notifying the peer.
+- **4. Admin Dashboard:** A dedicated `/admin` view for operations teams to monitor live sessions, view high-level metrics, drill down into granular event logs for past sessions, and force-end active calls.
+- **5. Observability:** A fully compliant `GET /metrics` endpoint exposing Prometheus metrics (active sessions, connected participants, reconnections, error rates, etc.) for integration with Grafana/Datadog.
+
+### ✨ Extra Bonus Features (Beyond Requirements)
+- **Post-Call CSAT Survey:** Customers are presented with a 1-5 star rating and comment form upon call termination to rate agent performance.
+- **Screen Sharing:** Agents can share their screens to guide customers through UIs or documentation.
+- **Camera Flip:** Mobile-friendly front/rear camera toggling for field technicians.
+- **Strict 1:1 Exclusivity Guard:** Prevents third-party snoopers from joining an active session even if they have the invite link.
+- **Network Quality Indicator:** Live ping measurements displayed to the customer before joining.
 
 ---
 
