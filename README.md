@@ -4,8 +4,9 @@
 
 Built for the **AtomQuest Hackathon 1.0 Grand Finale**. An agent creates a session and shares an invite link; a customer joins from the browser for a 1:1 video+audio call with in-call chat, file sharing, recording, reconnect handling, an admin dashboard, and Prometheus metrics.
 
-**Live Demo:** https://35-254-204-193.sslip.io
-**Agent Login:** `agent@atomquest.dev` / `Demo!Agent1`
+## [🔴 Live Demo → https://35-254-204-193.sslip.io](https://35-254-204-193.sslip.io)
+
+> **Agent Login:** `agent@atomquest.dev` / `Demo!Agent1`
 
 ---
 
