@@ -1,0 +1,82 @@
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-6);
+  padding: var(--sp-4) var(--sp-6);
+  background: var(--ink-deep);
+  border-top: 1px solid var(--border);
+}
+
+.controls__group {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2);
+  background: var(--surface);
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border);
+}
+
+.controls__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--light);
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.controls__btn:hover {
+  background: var(--surface-2);
+}
+
+.controls__btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.controls__btn--off {
+  background: rgba(229, 72, 77, 0.15);
+  color: var(--danger);
+}
+.controls__btn--off:hover {
+  background: rgba(229, 72, 77, 0.25);
+}
+
+.controls__btn--record {
+  color: var(--light-dim);
+}
+
+.controls__btn--recording {
+  color: var(--danger);
+  animation: pulse-ring 1.5s infinite;
+  --ring-color: rgba(229, 72, 77, 0.3);
+}
+
+.controls__btn--end {
+  width: 56px;
+  height: 56px;
+  background: var(--danger);
+  color: white;
+  border-radius: var(--radius-full);
+  border: 2px solid transparent;
+}
+.controls__btn--end:hover {
+  background: var(--danger-dim);
+  box-shadow: 0 0 20px var(--danger-glow);
+  transform: scale(1.05);
+}
+.controls__btn--end:active {
+  transform: scale(0.97);
+}
+
+@media (max-width: 640px) {
+  .controls__btn { width: 42px; height: 42px; }
+  .controls__btn--end { width: 48px; height: 48px; }
+}

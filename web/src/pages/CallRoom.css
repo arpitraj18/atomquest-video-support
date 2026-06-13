@@ -1,0 +1,144 @@
+.call-room {
+  display: flex;
+  flex-direction: column;
+  height: 100dvh;
+  background: var(--ink-deep);
+  overflow: hidden;
+}
+
+.call-room--error {
+  align-items: center;
+  justify-content: center;
+}
+
+/* ── Header ── */
+.call-room__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-3) var(--sp-4);
+  border-bottom: 1px solid var(--border);
+  background: var(--ink);
+  z-index: 10;
+}
+
+.call-room__header-left,
+.call-room__header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.call-room__title {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--light);
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.call-room__chat-toggle--active {
+  background: var(--cobalt-glow);
+  color: var(--cobalt);
+  border-color: rgba(59, 91, 255, 0.3);
+}
+
+/* ── Body ── */
+.call-room__body {
+  flex: 1;
+  display: flex;
+  overflow: hidden;
+}
+
+.call-room__videos {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--sp-4);
+  min-width: 0;
+}
+
+.call-room__videos--full {
+  /* When chat is closed, take full width */
+}
+
+.call-room__remote-tile {
+  width: 100%;
+  max-width: 960px;
+  max-height: calc(100dvh - 160px);
+}
+
+.call-room__waiting {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+}
+
+.call-room__local-tile {
+  position: absolute;
+  bottom: var(--sp-4);
+  right: var(--sp-4);
+  width: 220px;
+  z-index: 5;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  border: 2px solid var(--border);
+  transition: transform var(--duration-base) var(--ease-out);
+}
+.call-room__local-tile:hover {
+  transform: scale(1.03);
+}
+
+/* ── Chat sidebar ── */
+.call-room__chat {
+  width: 340px;
+  flex-shrink: 0;
+  border-left: 1px solid var(--border);
+  display: flex;
+}
+
+/* ── Overlays ── */
+.call-room__overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(13, 15, 19, 0.85);
+  z-index: 20;
+  backdrop-filter: blur(8px);
+}
+
+.call-room__overlay-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-8);
+  text-align: center;
+  max-width: 360px;
+  animation: fade-in var(--duration-base) var(--ease-out);
+}
+
+.call-room__overlay-card h2 {
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .call-room__chat { width: 100%; position: absolute; inset: 0; z-index: 15; }
+  .call-room__local-tile { width: 140px; bottom: var(--sp-3); right: var(--sp-3); }
+}

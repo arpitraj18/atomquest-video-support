@@ -1,0 +1,68 @@
+.signal-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 10px 3px 8px;
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.signal--md .signal-label { font-size: var(--text-xs); }
+.signal--sm { padding: 2px 8px 2px 6px; gap: 4px; }
+.signal--sm .signal-label { font-size: 10px; }
+
+.signal-dot {
+  position: relative;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.signal--sm .signal-dot { width: 6px; height: 6px; }
+
+.signal-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: signal-pulse 2s var(--ease-out) infinite;
+}
+
+/* ── Live (amber) ── */
+.signal--live {
+  background: var(--amber-glow);
+  border: 1px solid rgba(255, 157, 66, 0.3);
+}
+.signal--live .signal-dot { background: var(--amber); }
+.signal--live .signal-ring { background: var(--amber); }
+.signal--live .signal-label { color: var(--amber); }
+
+/* ── Recording (amber, same visual but distinct class) ── */
+.signal--recording {
+  background: var(--amber-glow);
+  border: 1px solid rgba(255, 157, 66, 0.3);
+}
+.signal--recording .signal-dot { background: var(--danger); }
+.signal--recording .signal-ring { background: var(--danger); }
+.signal--recording .signal-label { color: var(--amber); }
+
+/* ── Connected (cobalt) ── */
+.signal--connected {
+  background: var(--cobalt-glow);
+  border: 1px solid rgba(59, 91, 255, 0.25);
+}
+.signal--connected .signal-dot { background: var(--cobalt); }
+.signal--connected .signal-ring { background: var(--cobalt); }
+.signal--connected .signal-label { color: var(--cobalt); }
+
+/* ── Offline (muted) ── */
+.signal--offline {
+  background: rgba(139, 143, 151, 0.08);
+  border: 1px solid rgba(139, 143, 151, 0.15);
+}
+.signal--offline .signal-dot { background: var(--muted); }
+.signal--offline .signal-label { color: var(--muted); }

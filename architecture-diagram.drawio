@@ -1,0 +1,321 @@
+<mxfile host="app.diagrams.net" agent="5.0" version="26.0.0">
+  <diagram name="Architecture" id="arch-main">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1600" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ========== TITLE ========== -->
+        <mxCell id="title" value="&lt;b&gt;AtomQuest Video Support Platform — System Architecture&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=20;fontColor=#1a1a2e;" vertex="1" parent="1">
+          <mxGeometry x="350" y="20" width="900" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- ========== CLIENT LAYER (Blue) ========== -->
+        <mxCell id="client-group" value="&lt;b&gt;CLIENT LAYER&lt;/b&gt;  —  React 18 + TypeScript + Vite" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;verticalAlign=top;align=left;spacingLeft=14;fontSize=13;fontStyle=1;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="80" width="1520" height="170" as="geometry" />
+        </mxCell>
+
+        <!-- Agent Console -->
+        <mxCell id="agent-console" value="&lt;b&gt;Agent Console&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Create sessions&lt;br&gt;• Generate invite links&lt;br&gt;• View call history&lt;br&gt;• CSAT scores&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="120" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Call Room -->
+        <mxCell id="call-room" value="&lt;b&gt;Call Room&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• WebRTC video/audio&lt;br&gt;• Mute / Camera toggle&lt;br&gt;• Screen share&lt;br&gt;• Camera flip&lt;br&gt;• Recording controls&lt;br&gt;• Real-time chat + files&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="280" y="120" width="200" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Customer Join -->
+        <mxCell id="customer-join" value="&lt;b&gt;Customer Join Page&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Invite link validation&lt;br&gt;• Camera preview&lt;br&gt;• Network quality check&lt;br&gt;• Name entry&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="510" y="120" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Post Call Survey -->
+        <mxCell id="post-call" value="&lt;b&gt;Post-Call Survey&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• 1-5 star rating&lt;br&gt;• Comment field&lt;br&gt;• CSAT submission&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="720" y="120" width="170" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Admin Dashboard -->
+        <mxCell id="admin-dash" value="&lt;b&gt;Admin Dashboard&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Metrics cards&lt;br&gt;• Live sessions monitor&lt;br&gt;• Past session history&lt;br&gt;• Event log viewer&lt;br&gt;• Force-end sessions&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="920" y="120" width="190" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- RTC Client Lib -->
+        <mxCell id="rtc-client" value="&lt;b&gt;WebRTC Client (rtc.ts)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• getUserMedia&lt;br&gt;• RTCPeerConnection&lt;br&gt;• SDP offer/answer&lt;br&gt;• ICE candidates&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1140" y="120" width="180" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Socket.IO Client -->
+        <mxCell id="socket-client" value="&lt;b&gt;Socket.IO Client&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Event emitter&lt;br&gt;• Auth token binding&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#6c8ebf;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1350" y="120" width="180" height="110" as="geometry" />
+        </mxCell>
+
+
+        <!-- ========== TRANSPORT ARROWS ========== -->
+
+        <mxCell id="arrow-rest" value="&lt;b&gt;HTTPS / REST API&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Login, Sessions, Files,&lt;br&gt;Invites, Recordings, Admin&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontColor=#333;" vertex="1" parent="1">
+          <mxGeometry x="140" y="265" width="200" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow-ws" value="&lt;b&gt;WebSocket (Socket.IO)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Signaling, Chat, Media state,&lt;br&gt;Presence, Recording control&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontColor=#333;" vertex="1" parent="1">
+          <mxGeometry x="630" y="265" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="arrow-webrtc" value="&lt;b&gt;WebRTC Media (RTP/RTCP)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:9px&quot;&gt;Audio &amp; Video streams&lt;br&gt;via SFU (STUN-assisted)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontSize=10;fontColor=#333;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="265" width="220" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Transport line -->
+        <mxCell id="transport-line" value="" style="shape=line;strokeColor=#999;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="255" width="1520" height="10" as="geometry" />
+        </mxCell>
+        <mxCell id="transport-line2" value="" style="shape=line;strokeColor=#999;strokeWidth=2;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="320" width="1520" height="10" as="geometry" />
+        </mxCell>
+
+
+        <!-- ========== SERVER LAYER (Green) ========== -->
+        <mxCell id="server-group" value="&lt;b&gt;SERVER LAYER&lt;/b&gt;  —  Node.js + Express + Socket.IO" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;verticalAlign=top;align=left;spacingLeft=14;fontSize=13;fontStyle=1;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="340" width="1520" height="190" as="geometry" />
+        </mxCell>
+
+        <!-- Auth Module -->
+        <mxCell id="auth" value="&lt;b&gt;Auth Module&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• JWT (dual secrets)&lt;br&gt;• bcrypt passwords&lt;br&gt;• Agent tokens&lt;br&gt;• Invite tokens&lt;br&gt;• Guards middleware&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82b366;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="380" width="160" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- REST Routes -->
+        <mxCell id="routes" value="&lt;b&gt;REST API Routes&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• /api/auth (login, me)&lt;br&gt;• /api/sessions (CRUD)&lt;br&gt;• /api/invites (accept)&lt;br&gt;• /api/sessions/:id/files&lt;br&gt;• /api/sessions/:id/recordings&lt;br&gt;• /api/admin (dashboard)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82b366;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="260" y="380" width="200" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Session Service -->
+        <mxCell id="session-svc" value="&lt;b&gt;Session Service&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Create / end sessions&lt;br&gt;• Accept invites&lt;br&gt;• Mark participants&lt;br&gt;• Enforce access rules&lt;br&gt;• CSAT persistence&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82b366;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="490" y="380" width="180" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Signaling -->
+        <mxCell id="signaling" value="&lt;b&gt;Signaling Server&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Socket.IO events&lt;br&gt;• Presence tracking&lt;br&gt;• SDP relay (offer/answer)&lt;br&gt;• ICE candidate relay&lt;br&gt;• 1:1 exclusivity guard&lt;br&gt;• Chat &amp; file broadcast&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82b366;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="700" y="380" width="190" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Reconnect Manager -->
+        <mxCell id="reconnect" value="&lt;b&gt;Reconnect Manager&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Grace window (20s)&lt;br&gt;• Pending disconnect map&lt;br&gt;• Timer-based expiry&lt;br&gt;• Seamless rejoin&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82b366;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="920" y="380" width="170" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Recording Service -->
+        <mxCell id="recording-svc" value="&lt;b&gt;Recording Service&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Puppeteer headless&lt;br&gt;• MediaRecorder API&lt;br&gt;• Status lifecycle&lt;br&gt;• WebM output&lt;br&gt;• Download endpoint&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82b366;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1120" y="380" width="170" height="130" as="geometry" />
+        </mxCell>
+
+        <!-- Middleware -->
+        <mxCell id="middleware" value="&lt;b&gt;Middleware&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Helmet (security)&lt;br&gt;• CORS&lt;br&gt;• Rate limiting&lt;br&gt;• Multer (uploads)&lt;br&gt;• Pino (logging)&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#82b366;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="380" width="160" height="130" as="geometry" />
+        </mxCell>
+
+
+        <!-- ========== SFU LAYER (Purple) ========== -->
+        <mxCell id="sfu-group" value="&lt;b&gt;SFU MEDIA LAYER&lt;/b&gt;  —  Custom SFU built on werift" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;verticalAlign=top;align=left;spacingLeft=14;fontSize=13;fontStyle=1;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="550" width="740" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Media Server -->
+        <mxCell id="media-server" value="&lt;b&gt;MediaServer (werift)&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Room management&lt;br&gt;• Peer add / remove&lt;br&gt;• SDP negotiation&lt;br&gt;• ICE candidate handling&lt;br&gt;• Track forwarding&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9673a6;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="590" width="190" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- SFU Room -->
+        <mxCell id="sfu-room" value="&lt;b&gt;SFU Room&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Per-session isolation&lt;br&gt;• Multi-peer track routing&lt;br&gt;• Publish → Subscribe model&lt;br&gt;• Clean teardown on end&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9673a6;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="290" y="590" width="200" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- SFU Peer -->
+        <mxCell id="sfu-peer" value="&lt;b&gt;SFU Peer&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• RTCPeerConnection (server)&lt;br&gt;• Audio transceiver (sendrecv)&lt;br&gt;• Video transceiver (sendrecv)&lt;br&gt;• Track subscription&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#9673a6;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="520" y="590" width="230" height="100" as="geometry" />
+        </mxCell>
+
+
+        <!-- ========== DATA LAYER (Orange) ========== -->
+        <mxCell id="data-group" value="&lt;b&gt;DATA LAYER&lt;/b&gt;  —  SQLite + File System" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;verticalAlign=top;align=left;spacingLeft=14;fontSize=13;fontStyle=1;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="40" y="730" width="740" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- SQLite DB -->
+        <mxCell id="sqlite" value="&lt;b&gt;SQLite Database&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;&lt;b&gt;Tables:&lt;/b&gt;&lt;br&gt;• users (agents)&lt;br&gt;• sessions&lt;br&gt;• participants&lt;br&gt;• messages (chat)&lt;br&gt;• files&lt;br&gt;• recordings&lt;br&gt;• events (audit log)&lt;/font&gt;" style="shape=cylinder3;size=10;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#d6b656;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="70" y="770" width="170" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- Repositories -->
+        <mxCell id="repos" value="&lt;b&gt;Repository Layer&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• sessionsRepo&lt;br&gt;• participantsRepo&lt;br&gt;• messagesRepo&lt;br&gt;• filesRepo&lt;br&gt;• recordingsRepo&lt;br&gt;• eventsRepo&lt;br&gt;• usersRepo&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#d6b656;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="280" y="770" width="170" height="110" as="geometry" />
+        </mxCell>
+
+        <!-- File Storage -->
+        <mxCell id="file-storage" value="&lt;b&gt;File System Storage&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;&lt;b&gt;server/data/&lt;/b&gt;&lt;br&gt;• /files/ (uploaded docs)&lt;br&gt;• /recordings/ (WebM)&lt;br&gt;• atomquest.db&lt;/font&gt;" style="shape=document;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#d6b656;shadow=1;fontSize=11;size=0.15;" vertex="1" parent="1">
+          <mxGeometry x="490" y="770" width="200" height="110" as="geometry" />
+        </mxCell>
+
+
+        <!-- ========== OBSERVABILITY (Red) ========== -->
+        <mxCell id="obs-group" value="&lt;b&gt;OBSERVABILITY&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;verticalAlign=top;align=left;spacingLeft=14;fontSize=13;fontStyle=1;arcSize=8;" vertex="1" parent="1">
+          <mxGeometry x="810" y="550" width="750" height="160" as="geometry" />
+        </mxCell>
+
+        <!-- Prometheus Metrics -->
+        <mxCell id="prom" value="&lt;b&gt;Prometheus Metrics&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;GET /metrics&lt;br&gt;&lt;br&gt;• atomquest_calls_started_total&lt;br&gt;• atomquest_calls_ended_total&lt;br&gt;• atomquest_active_sessions&lt;br&gt;• atomquest_reconnections_total&lt;br&gt;• atomquest_errors_total&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#b85450;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="840" y="590" width="230" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Health -->
+        <mxCell id="health" value="&lt;b&gt;Health Check&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;GET /health&lt;br&gt;&lt;br&gt;• Server status&lt;br&gt;• Uptime&lt;br&gt;• DB connectivity&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#b85450;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1100" y="590" width="180" height="100" as="geometry" />
+        </mxCell>
+
+        <!-- Logging -->
+        <mxCell id="logging" value="&lt;b&gt;Structured Logging&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;Pino + pino-http&lt;br&gt;&lt;br&gt;• Request logging&lt;br&gt;• Error tracking&lt;br&gt;• Event audit trail&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#b85450;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1310" y="590" width="180" height="100" as="geometry" />
+        </mxCell>
+
+
+        <!-- ========== SECURITY CALLOUT ========== -->
+        <mxCell id="security-group" value="&lt;b&gt;SECURITY &amp; ACCESS CONTROL&lt;/b&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666;verticalAlign=top;align=left;spacingLeft=14;fontSize=13;fontStyle=1;arcSize=8;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="810" y="730" width="750" height="160" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sec1" value="&lt;b&gt;Dual JWT Secrets&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;Agent tokens &amp; Invite&lt;br&gt;tokens use separate&lt;br&gt;signing secrets.&lt;br&gt;Invite tokens are&lt;br&gt;session-scoped.&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="840" y="770" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sec2" value="&lt;b&gt;Role Enforcement&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• requireAuth guard&lt;br&gt;• requireAgent guard&lt;br&gt;• requireSessionAccess&lt;br&gt;• Socket auth middleware&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1030" y="770" width="170" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sec3" value="&lt;b&gt;Upload Security&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• MIME type allowlist&lt;br&gt;• Size limit (10MB)&lt;br&gt;• Generated filenames&lt;br&gt;• No path traversal&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1230" y="770" width="160" height="100" as="geometry" />
+        </mxCell>
+
+        <mxCell id="sec4" value="&lt;b&gt;Network Security&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size:10px&quot;&gt;• Helmet headers&lt;br&gt;• CORS whitelist&lt;br&gt;• Rate limiting&lt;br&gt;• bcrypt passwords&lt;/font&gt;" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFFFFF;strokeColor=#666;shadow=1;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="770" width="120" height="100" as="geometry" />
+        </mxCell>
+
+
+        <!-- ========== FLOW ARROWS ========== -->
+
+        <!-- Client to Server (REST) -->
+        <mxCell id="flow1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#6c8ebf;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="agent-console" target="routes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Client to Server (WebSocket) -->
+        <mxCell id="flow2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#82b366;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="call-room" target="signaling">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Client to SFU (WebRTC) -->
+        <mxCell id="flow3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#9673a6;strokeWidth=2;dashed=1;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="rtc-client" target="sfu-room">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1230" y="540" />
+              <mxPoint x="390" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Signaling to SFU -->
+        <mxCell id="flow4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#9673a6;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="signaling" target="media-server">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="795" y="540" />
+              <mxPoint x="165" y="540" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Session Service to DB -->
+        <mxCell id="flow5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#d6b656;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="session-svc" target="repos">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Repos to SQLite -->
+        <mxCell id="flow6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#d6b656;strokeWidth=2;exitX=0;exitY=0.5;entryX=1;entryY=0.5;" edge="1" parent="1" source="repos" target="sqlite">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Recording to File Storage -->
+        <mxCell id="flow7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#d6b656;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.5;entryY=0;" edge="1" parent="1" source="recording-svc" target="file-storage">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1205" y="720" />
+              <mxPoint x="590" y="720" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+
+        <!-- Admin to Admin Routes -->
+        <mxCell id="flow8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#6c8ebf;strokeWidth=2;exitX=0.5;exitY=1;entryX=0.8;entryY=0;" edge="1" parent="1" source="admin-dash" target="routes">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Signaling to Reconnect -->
+        <mxCell id="flow9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;strokeColor=#82b366;strokeWidth=1;exitX=1;exitY=0.5;entryX=0;entryY=0.5;" edge="1" parent="1" source="signaling" target="reconnect">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+
+        <!-- ========== LEGEND ========== -->
+        <mxCell id="legend-title" value="&lt;b&gt;LEGEND&lt;/b&gt;" style="text;html=1;align=left;fontSize=11;fontStyle=1;fontColor=#333;" vertex="1" parent="1">
+          <mxGeometry x="40" y="920" width="80" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg1" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="40" y="945" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg1t" value="Client Layer (React)" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="65" y="942" width="130" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg2" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="200" y="945" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg2t" value="Server Layer (Node.js)" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="225" y="942" width="140" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg3" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="370" y="945" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg3t" value="SFU Media Layer (werift)" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="395" y="942" width="150" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg4" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="550" y="945" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg4t" value="Data Layer (SQLite + FS)" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="575" y="942" width="150" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg5" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="730" y="945" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg5t" value="Observability (Prometheus)" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="755" y="942" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <mxCell id="leg6" value="" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F5F5F5;strokeColor=#666;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="920" y="945" width="20" height="14" as="geometry" />
+        </mxCell>
+        <mxCell id="leg6t" value="Security &amp; Access Control" style="text;html=1;align=left;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="945" y="942" width="160" height="20" as="geometry" />
+        </mxCell>
+
+        <!-- Tech Stack Footer -->
+        <mxCell id="footer" value="&lt;font style=&quot;font-size:10px;color:#888&quot;&gt;Tech Stack: React 18 · TypeScript · Vite · Node.js · Express · Socket.IO · werift (SFU) · SQLite · Puppeteer (Recording) · Prometheus (Metrics) · Pino (Logging) · Helmet · bcrypt · JWT&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="250" y="975" width="1100" height="25" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

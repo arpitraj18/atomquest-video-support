@@ -1,0 +1,129 @@
+.console-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  color: var(--cobalt);
+}
+
+.console-brand__name {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--light);
+  letter-spacing: -0.02em;
+}
+
+.console-brand__tag {
+  padding: 2px 6px;
+  background: var(--surface-2);
+  border-radius: var(--radius-sm);
+}
+
+.console-header__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.console-user {
+  padding-right: var(--sp-3);
+  border-right: 1px solid var(--border);
+}
+
+/* ── Create Section ── */
+.console-create {
+  margin-bottom: var(--sp-8);
+}
+
+.console-section-title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--light-dim);
+  margin-bottom: var(--sp-4);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: var(--text-xs);
+}
+
+.console-create__form {
+  display: flex;
+  gap: var(--sp-3);
+}
+
+.console-create__input {
+  flex: 1;
+}
+
+/* ── Session Grid ── */
+.console-sessions {
+  margin-top: var(--sp-4);
+}
+
+.console-session-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--sp-4);
+}
+
+.console-session-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  animation: fade-in var(--duration-base) var(--ease-out);
+}
+
+.console-session-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.console-session-card__title {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--light);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.console-session-card__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.console-session-card__meta-item {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.console-session-card__code {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--ink);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+}
+
+.console-session-card__actions {
+  display: flex;
+  gap: var(--sp-2);
+  margin-top: var(--sp-1);
+}
+
+.console-loading {
+  display: flex;
+  justify-content: center;
+  padding: var(--sp-12);
+}
+
+@media (max-width: 640px) {
+  .console-create__form { flex-direction: column; }
+  .console-session-grid { grid-template-columns: 1fr; }
+  .console-header__actions { gap: var(--sp-2); }
+  .console-user { display: none; }
+}

@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="'Segoe UI', system-ui, sans-serif">
+  <defs>
+    <marker id="arrowBlue" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3B5BFF"/>
+    </marker>
+    <marker id="arrowAmber" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FF9D42"/>
+    </marker>
+    <marker id="arrowGreen" viewBox="0 0 10 7" refX="10" refY="3.5" markerWidth="8" markerHeight="6" orient="auto-start-reverse">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2FB89A"/>
+    </marker>
+    <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1C2027"/>
+      <stop offset="100%" stop-color="#14171C"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="520" rx="16" fill="#0D0F13"/>
+
+  <!-- Title -->
+  <text x="450" y="36" text-anchor="middle" fill="#F4F5F3" font-size="18" font-weight="700" letter-spacing="0.5">AtomQuest · Architecture</text>
+
+  <!-- ═══ Browser A ═══ -->
+  <rect x="40" y="80" width="200" height="180" rx="12" fill="url(#cardGrad)" stroke="#2A2E36" stroke-width="1.5"/>
+  <text x="140" y="106" text-anchor="middle" fill="#F4F5F3" font-size="14" font-weight="600">Browser A</text>
+  <text x="140" y="124" text-anchor="middle" fill="#8B8F97" font-size="11">(Agent)</text>
+  <rect x="60" y="138" width="160" height="28" rx="6" fill="#252930" stroke="#363B44" stroke-width="1"/>
+  <text x="140" y="157" text-anchor="middle" fill="#3B5BFF" font-size="11" font-weight="500">RTCPeerConnection</text>
+  <rect x="60" y="174" width="160" height="28" rx="6" fill="#252930" stroke="#363B44" stroke-width="1"/>
+  <text x="140" y="193" text-anchor="middle" fill="#FF9D42" font-size="11" font-weight="500">Socket.IO Client</text>
+  <rect x="60" y="210" width="160" height="28" rx="6" fill="#252930" stroke="#363B44" stroke-width="1"/>
+  <text x="140" y="229" text-anchor="middle" fill="#2FB89A" font-size="11" font-weight="500">REST (fetch)</text>
+
+  <!-- ═══ Browser B ═══ -->
+  <rect x="660" y="80" width="200" height="180" rx="12" fill="url(#cardGrad)" stroke="#2A2E36" stroke-width="1.5"/>
+  <text x="760" y="106" text-anchor="middle" fill="#F4F5F3" font-size="14" font-weight="600">Browser B</text>
+  <text x="760" y="124" text-anchor="middle" fill="#8B8F97" font-size="11">(Customer)</text>
+  <rect x="680" y="138" width="160" height="28" rx="6" fill="#252930" stroke="#363B44" stroke-width="1"/>
+  <text x="760" y="157" text-anchor="middle" fill="#3B5BFF" font-size="11" font-weight="500">RTCPeerConnection</text>
+  <rect x="680" y="174" width="160" height="28" rx="6" fill="#252930" stroke="#363B44" stroke-width="1"/>
+  <text x="760" y="193" text-anchor="middle" fill="#FF9D42" font-size="11" font-weight="500">Socket.IO Client</text>
+  <rect x="680" y="210" width="160" height="28" rx="6" fill="#252930" stroke="#363B44" stroke-width="1"/>
+  <text x="760" y="229" text-anchor="middle" fill="#2FB89A" font-size="11" font-weight="500">REST (fetch)</text>
+
+  <!-- ═══ SFU Server ═══ -->
+  <rect x="290" y="70" width="320" height="310" rx="14" fill="url(#cardGrad)" stroke="#3B5BFF" stroke-width="1.5" stroke-opacity="0.4"/>
+  <text x="450" y="98" text-anchor="middle" fill="#F4F5F3" font-size="15" font-weight="700">SFU Server</text>
+  <text x="450" y="116" text-anchor="middle" fill="#8B8F97" font-size="10" font-family="monospace">Node.js · :4000</text>
+
+  <!-- Server components -->
+  <rect x="310" y="132" width="130" height="36" rx="8" fill="#252930" stroke="#3B5BFF" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="375" y="155" text-anchor="middle" fill="#3B5BFF" font-size="11" font-weight="600">werift SFU</text>
+  <text x="375" y="168" text-anchor="middle" fill="#8B8F97" font-size="9">Peer / Room</text>
+
+  <rect x="460" y="132" width="130" height="36" rx="8" fill="#252930" stroke="#FF9D42" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="525" y="155" text-anchor="middle" fill="#FF9D42" font-size="11" font-weight="600">Socket.IO</text>
+  <text x="525" y="168" text-anchor="middle" fill="#8B8F97" font-size="9">Signaling</text>
+
+  <rect x="310" y="185" width="130" height="36" rx="8" fill="#252930" stroke="#2FB89A" stroke-width="1" stroke-opacity="0.4"/>
+  <text x="375" y="208" text-anchor="middle" fill="#2FB89A" font-size="11" font-weight="600">Express REST</text>
+  <text x="375" y="221" text-anchor="middle" fill="#8B8F97" font-size="9">API Routes</text>
+
+  <rect x="460" y="185" width="130" height="36" rx="8" fill="#252930" stroke="#E5484D" stroke-width="1" stroke-opacity="0.3"/>
+  <text x="525" y="208" text-anchor="middle" fill="#E5484D" font-size="11" font-weight="600">Recording</text>
+  <text x="525" y="221" text-anchor="middle" fill="#8B8F97" font-size="9">MediaRecorder</text>
+
+  <rect x="310" y="238" width="130" height="36" rx="8" fill="#252930" stroke="#363B44" stroke-width="1"/>
+  <text x="375" y="261" text-anchor="middle" fill="#C8CAC6" font-size="11" font-weight="600">node:sqlite</text>
+  <text x="375" y="274" text-anchor="middle" fill="#8B8F97" font-size="9">DatabaseSync</text>
+
+  <rect x="460" y="238" width="130" height="36" rx="8" fill="#252930" stroke="#363B44" stroke-width="1"/>
+  <text x="525" y="261" text-anchor="middle" fill="#C8CAC6" font-size="11" font-weight="600">Auth (JWT)</text>
+  <text x="525" y="274" text-anchor="middle" fill="#8B8F97" font-size="9">2 secrets</text>
+
+  <rect x="385" y="290" width="130" height="36" rx="8" fill="#252930" stroke="#363B44" stroke-width="1"/>
+  <text x="450" y="313" text-anchor="middle" fill="#C8CAC6" font-size="11" font-weight="600">prom-client</text>
+  <text x="450" y="326" text-anchor="middle" fill="#8B8F97" font-size="9">/metrics</text>
+
+  <!-- ═══ Media path (cobalt, thick) ═══ -->
+  <!-- A → SFU -->
+  <line x1="240" y1="152" x2="308" y2="152" stroke="#3B5BFF" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="274" y="145" text-anchor="middle" fill="#3B5BFF" font-size="9" font-weight="600">RTP</text>
+
+  <!-- SFU → B -->
+  <line x1="592" y1="152" x2="678" y2="152" stroke="#3B5BFF" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+  <text x="635" y="145" text-anchor="middle" fill="#3B5BFF" font-size="9" font-weight="600">RTP</text>
+
+  <!-- B → SFU (return path) -->
+  <line x1="678" y1="164" x2="592" y2="164" stroke="#3B5BFF" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- SFU → A (return path) -->
+  <line x1="308" y1="164" x2="240" y2="164" stroke="#3B5BFF" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- ═══ Signaling path (amber) ═══ -->
+  <line x1="240" y1="188" x2="308" y2="155" stroke="#FF9D42" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowAmber)" opacity="0.8"/>
+  <line x1="678" y1="188" x2="592" y2="155" stroke="#FF9D42" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowAmber)" opacity="0.8"/>
+
+  <!-- ═══ REST path (green) ═══ -->
+  <line x1="240" y1="224" x2="308" y2="203" stroke="#2FB89A" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrowGreen)" opacity="0.7"/>
+  <line x1="678" y1="224" x2="592" y2="203" stroke="#2FB89A" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrowGreen)" opacity="0.7"/>
+
+  <!-- ═══ Recording tap ═══ -->
+  <line x1="442" y1="152" x2="460" y2="195" stroke="#E5484D" stroke-width="1" stroke-dasharray="3,3" opacity="0.5"/>
+
+  <!-- ═══ Legend ═══ -->
+  <rect x="40" y="400" width="820" height="100" rx="12" fill="#1C2027" stroke="#2A2E36" stroke-width="1"/>
+  <text x="60" y="425" fill="#8B8F97" font-size="11" font-weight="600" letter-spacing="0.08em">LEGEND</text>
+
+  <!-- Media -->
+  <line x1="60" y1="448" x2="110" y2="448" stroke="#3B5BFF" stroke-width="2.5"/>
+  <circle cx="116" cy="448" r="3" fill="#3B5BFF"/>
+  <text x="128" y="452" fill="#F4F5F3" font-size="11">Media (SRTP/RTP) — bidirectional through SFU, never P2P</text>
+
+  <!-- Signaling -->
+  <line x1="60" y1="470" x2="110" y2="470" stroke="#FF9D42" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <circle cx="116" cy="470" r="3" fill="#FF9D42"/>
+  <text x="128" y="474" fill="#F4F5F3" font-size="11">Signaling (Socket.IO) — SDP/ICE relay, chat, presence, control</text>
+
+  <!-- REST -->
+  <line x1="520" y1="448" x2="570" y2="448" stroke="#2FB89A" stroke-width="1.5" stroke-dasharray="3,3"/>
+  <circle cx="576" cy="448" r="3" fill="#2FB89A"/>
+  <text x="588" y="452" fill="#F4F5F3" font-size="11">REST API — auth, sessions, invites, files, admin</text>
+
+  <!-- Recording -->
+  <line x1="520" y1="470" x2="570" y2="470" stroke="#E5484D" stroke-width="1" stroke-dasharray="3,3"/>
+  <circle cx="576" cy="470" r="3" fill="#E5484D"/>
+  <text x="588" y="474" fill="#F4F5F3" font-size="11">Recording — taps SFU media → WebM on disk</text>
+</svg>
