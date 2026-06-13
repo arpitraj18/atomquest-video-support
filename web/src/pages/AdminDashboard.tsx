@@ -253,7 +253,7 @@ export const AdminDashboard: React.FC = () => {
               </div>
             </div>
             <div>
-              <div className="font-headline-lg text-headline-lg text-on-surface mb-1">{metrics ? metrics.csat.toFixed(1) : '...'}/5.0</div>
+              <div className="font-headline-lg text-headline-lg text-on-surface mb-1">{metrics?.csat != null ? metrics.csat.toFixed(1) : '...'}/5.0</div>
               <div className="flex items-center gap-1 text-on-surface-variant font-label-sm text-label-sm">
                 <span className="material-symbols-outlined text-[16px]">horizontal_rule</span>
                 <span className="">Baseline score</span>
