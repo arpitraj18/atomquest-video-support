@@ -28,3 +28,6 @@ logs/
 .vscode/
 .idea/
 *.swp
+
+# submission (kept off GitHub)
+SUBMISSION_README.md
