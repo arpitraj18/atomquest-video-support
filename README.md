@@ -15,11 +15,11 @@ Built for the **AtomQuest Hackathon 1.0 Grand Finale**. An agent creates a sessi
 ### Must-Have Core Capabilities (Fully Completed)
 - **Session Management:** Role-based access control. Agents create sessions and generate secure, cryptographically random invite links. Customers join via browser with zero installation. All sessions can be cleanly terminated and are persisted with full history.
 - **Audio & Video Calling:** Real-time 1:1 video and audio routed entirely through our **custom-built SFU server** (Selective Forwarding Unit) using `werift`. No third-party APIs (Twilio, Agora, etc.).
-- **In-Call Chat:** Persistent, real-time WebSocket chat integrated directly into the call room. Messages are saved to the database and retrievable after the call.
+- **In-Call Chat:** Persistent, real-time chat over Socket.IO integrated directly into the call room. Messages are saved to the database and retrievable after the call.
 - **User Roles & Access:** Strict enforcement using separate JWT signing secrets for Agents vs. Customers. Customers are issued session-scoped tokens and cannot perform agent actions.
 
 ### Good-to-Have Features (All 5 Implemented)
-- **1. Call Recording:** Agents can start/stop server-side recordings. A headless Puppeteer instance captures the live media layout into a WebM file, available for download post-call.
+- **1. Call Recording:** Agents can start/stop server-side recordings. Participants' live RTP streams are muxed directly to a WebM file on the server via werift's `MediaRecorder` (no headless browser or external transcoder), available for download post-call.
 - **2. File Sharing in Chat:** Participants can securely upload files (Images, PDFs, Docs) during a call. Files are validated by MIME type, size-capped at 25MB, and accessible via the session record.
 - **3. Reconnect Handling:** A robust 20-second grace window. If a connection drops, the server holds their spot and seamlessly restores the session on reconnect without notifying the peer.
 - **4. Admin Dashboard:** A dedicated `/admin` view to monitor live sessions, view metrics, drill into granular event logs for past sessions, and force-end active calls.
@@ -86,8 +86,10 @@ npm run dev
 The platform is deployed on a **GCP e2-micro VM** (Always Free tier) with:
 - Nginx as a reverse proxy serving the React frontend and proxying API/WebSocket traffic
 - PM2 managing the Node.js backend process with auto-restart on reboot
-- Let's Encrypt SSL via Certbot for HTTPS
-- GCP firewall rule opening UDP `10000–60000` for WebRTC media transport
+- HTTPS terminated at the proxy
+- UFW opening UDP `1024–65535` for WebRTC media transport (the cloud firewall must mirror this range)
+
+> The SFU is a stateful, long-lived process holding persistent WebSocket connections and UDP media transport, so it is intentionally **not** serverless-compatible — hence a long-running VM rather than a function platform.
 
 Live at: **https://35-254-204-193.sslip.io**
 
@@ -100,7 +102,7 @@ Scrape `GET /metrics` (Prometheus exposition format):
 | Metric                              | Type    | Description                              |
 |-------------------------------------|---------|------------------------------------------|
 | `atomquest_active_sessions`         | Gauge   | Currently live sessions                  |
-| `atomquest_connected_participants`  | Gauge   | Connected WebSocket participants         |
+| `atomquest_connected_participants`  | Gauge   | Connected participants                   |
 | `atomquest_active_media_rooms`      | Gauge   | SFU rooms with active media peers        |
 | `atomquest_sessions_created_total`  | Counter | Total sessions created                   |
 | `atomquest_calls_ended_total`       | Counter | Calls ended (by agent/customer/admin)    |
@@ -119,8 +121,8 @@ Scrape `GET /metrics` (Prometheus exposition format):
 | Database   | `node:sqlite` (Node ≥22.5 built-in `DatabaseSync`)            |
 | Realtime   | Socket.IO                                                      |
 | HTTP       | Express 4 + helmet + cors + express-rate-limit                 |
-| Auth       | JWT (jsonwebtoken) + bcryptjs                                  |
-| Recording  | werift `MediaRecorder` → WebM                                  |
+| Auth       | JWT (jsonwebtoken, dual-secret) + bcryptjs                     |
+| Recording  | werift `MediaRecorder` (RTP → WebM, muxed server-side)          |
 | Metrics    | prom-client                                                    |
 | Validation | zod                                                            |
 | Logging    | pino                                                           |
@@ -134,7 +136,7 @@ Scrape `GET /metrics` (Prometheus exposition format):
 - **Recording** captures what the SFU receives; quality depends on upstream network.
 - **SQLite** — single-writer, suitable for single-instance. For multi-instance production, swap to PostgreSQL.
 - **No end-to-end encryption** — media is terminated at the SFU (standard for any SFU architecture).
-- **Recording feature** is memory-intensive (Puppeteer/Chromium). Avoid heavy use on the free-tier VM.
+- **Recording** holds the muxer and the live track set in memory for the call's duration; keep concurrent recordings modest on the free-tier VM.
 
 ---
 
